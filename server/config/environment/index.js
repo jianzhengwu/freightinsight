@@ -56,6 +56,7 @@ var all = {
 
 // Export the config object based on the NODE_ENV
 // ==============================================
-module.exports = _.merge(
+
+module.exports = _.merge(  //lodash utility _.merge merges the objects all and require() or empty object, i.e all 
   all,
-  require('./' + process.env.NODE_ENV + '.js') || {});
+  require('./' + process.env.NODE_ENV + '.js') || {}); //can be development.js, test.js or production.js on empty

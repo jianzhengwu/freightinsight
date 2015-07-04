@@ -8,5 +8,5 @@ module.exports = {
     uri: 'mongodb://localhost/freightinsight-dev'
   },
 
-  seedDB: true
+  seedDB: false
 };
