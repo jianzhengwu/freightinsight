@@ -12,6 +12,8 @@
 var _ = require('lodash');
 var Thing = require('./thing.model');
 
+//exports.method is same as module.export {method1, method2, etc.}
+
 // Get list of things
 exports.index = function(req, res) {
   Thing.find(function (err, things) {
