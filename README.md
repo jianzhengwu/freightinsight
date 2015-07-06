@@ -18,3 +18,7 @@ the function start with ._, e.g. ._merge is lodash utility.
 explanation about NODE_ENV http://wmyers.github.io/technical/nodejs/Setting-environment-variables-in-node-with-the-angular-fullstack-generator/
 
 exports is a reference to the module.exports that is shorter to type
+
+difference between res.render and res.sendfile: The render method works when you have a templating engine in use such as handlebars.js or jade. A templating engine is a node module assosiated with express (which some people refer to as an express plugin) which parses the template file and genereated the HTML output. The sendfile method simply sends the file to the client. Since you are using an HTML file, there is nothing particularly to be parsed by the templating engine. So, the output of render is same as that of sendfile (i.e., the HTML written in the file). Hence, both produce the same result.
+
+app.get (name) returns the value of app.set (name, value)

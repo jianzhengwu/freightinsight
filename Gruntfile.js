@@ -654,7 +654,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'injector',
     'wiredep',
-    'useminPrepare',
+    'useminPrepare', //between usemin prepare and usemin, the tasks to optimize the code like concat and uglify...
     'autoprefixer',
     'ngtemplates',
     'concat',

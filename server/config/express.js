@@ -31,26 +31,27 @@ module.exports = function(app) {
   app.engine('html', require('ejs').renderFile); // define my own template engine 'html'
   app.set('views', config.root + '/server/views'); //specify the view directory where the templates are located for the template engine
   app.set('view engine', 'html'); //register the template engine 'html', another choice may be template jade
-  
-  app.use(compression());
-  app.use(bodyParser.urlencoded({ extended: false }));
-  app.use(bodyParser.json());
-  app.use(methodOverride());
+  app.use(compression()); //compress incomming http requests
+  app.use(bodyParser.urlencoded({ extended: false })); //parse urlencoded http request
+  app.use(bodyParser.json()); //parse json format http request
+  app.use(methodOverride()); // use HTTP verbs such as PUT or DELETE in places where the client doesn't support it.
   app.use(cookieParser());
-  app.use(passport.initialize());
+  app.use(passport.initialize()); //initialize passport authentification module
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
-    app.use(express.static(path.join(config.root, 'public')));
+//define the static assets of the sites, so that we can do http://.....com/public/image/picture.jpeg
+    app.use(express.static(path.join(config.root, 'public'))); //put the static ressource (picture etc.) in freightinsight/public folder, this folder will be created in the dist folder when running grunt serve:dist for releasing in prod.
     app.set('appPath', config.root + '/public');
     app.use(morgan('dev'));
   }
 
   if ('development' === env || 'test' === env) {
     app.use(require('connect-livereload')());
-    app.use(express.static(path.join(config.root, '.tmp')));
-    app.use(express.static(path.join(config.root, 'client')));
-    app.set('appPath', 'client');
-    app.use(morgan('dev'));
+/*If you want to use multiple directories as static assets directories, you can call the express.static middleware multiple times. The files will be looked up in the order the static directories were set using the express.static middleware */
+    app.use(express.static(path.join(config.root, '.tmp')));//using .tmp for static assets
+    app.use(express.static(path.join(config.root, 'client'))); //using freightinsight/client for static ressource in dev.
+    app.set('appPath', 'client'); //set the appPath app setting to client, this will be used in the file routes.js by app.get ('appPath') 
+    app.use(morgan('dev')); //http logger
     app.use(errorHandler()); // Error handler - has to be last
   }
 };
