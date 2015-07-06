@@ -6,6 +6,8 @@
  * PUT     /things/:id          ->  update
  * DELETE  /things/:id          ->  destroy
  */
+ 
+ //''exports is a reference to the module.exports that is shorter to type
 
 'use strict';
 

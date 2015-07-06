@@ -594,7 +594,7 @@ module.exports = function (grunt) {
       'injector',
       'wiredep',
       'autoprefixer',
-      'express:dev', //define the express launch script is app.js
+      'express:dev', //defining the express launch script is app.js
       'wait',
       'open',
       'watch'

@@ -16,6 +16,9 @@ var all = {
   env: process.env.NODE_ENV,
 
   // Root path of server
+  //path.normalize normalize a string to a path (reverse slash for windows for example)
+  //__dirname is the foder in which the script is currently runing, i.e. "environment", two points is the parent folder
+  //__dirname + '/../../..' gives the folder "freight insight" i.e. three time ..
   root: path.normalize(__dirname + '/../../..'),
 
   // Server port
