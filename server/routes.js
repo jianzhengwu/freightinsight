@@ -12,7 +12,7 @@ module.exports = function(app) {
   // The URL localhost:9000/api/things will be handled by the script /thing/index.js
   app.use('/api/things', require('./api/thing')); //the second argument is supposed to be a router object (see .../thing/index.js)
   app.use('/api/users', require('./api/user'));
-  app.use('/auth', require('./auth'));
+  app.use('/auth', require('./auth')); //this leads to auth/index.js and require() expects a Router in return
   
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
