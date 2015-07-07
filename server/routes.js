@@ -4,14 +4,14 @@
 
 'use strict';
 
-var errors = require('./components/errors'); //error functions are defined in components/errors/index.js
+var errors = require('./components/errors'); //error functions are defined in components/errors/index.js when using require (a folder), if there is no package.json file present in the folder, then node will attempt to load an index.js or index.node file out of that folder.
 
 module.exports = function(app) {
 
-  // Insert routes below
-  app.use('/api/things', require('./api/thing'));
+  // Insert routes below in the route handlers
+  // The URL localhost:9000/api/things will be handled by the script /thing/index.js
+  app.use('/api/things', require('./api/thing')); //the second argument is supposed to be a router object (see .../thing/index.js)
   app.use('/api/users', require('./api/user'));
-
   app.use('/auth', require('./auth'));
   
   // All undefined asset or api routes should return a 404
@@ -22,7 +22,7 @@ module.exports = function(app) {
   app.route('/*')
     .get(function(req, res) {
       //in config/express, we have set app.set('appPath', 'client'), so res.sendfile('client/index.html')
-      //if we use res.render, express will look into view folder 'views'
+      //if we use res.render, express will look into view folder 'views' so we have to use res.sendfile
       res.sendfile(app.get('appPath') + '/index.html');
     });
 };
