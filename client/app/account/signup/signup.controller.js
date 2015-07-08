@@ -2,11 +2,13 @@
 
 angular.module('freightinsightApp')
   .controller('SignupCtrl', function ($scope, Auth, $location, $window) {
+//Auth is a custom service defined in auth.service.js 
     $scope.user = {};
     $scope.errors = {};
 
+//register function called by the form (name=form) in the signup.html when the register form is submitted 
     $scope.register = function(form) {
-      $scope.submitted = true;
+      $scope.submitted = true; 
 
       if(form.$valid) {
         Auth.createUser({

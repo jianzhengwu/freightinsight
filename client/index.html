@@ -21,7 +21,7 @@
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
-  <body ng-app="freightinsightApp">
+  <body ng-app="freightinsightApp"> //this is the main Angular app defined in app.js
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -61,7 +61,7 @@
 
         <!-- build:js({.tmp,client}) app/app.js -->
         <script src="app/app.js"></script>
-          <!-- injector:js -->
+          <!-- add all custom angular injector:js -->
           <script src="app/account/account.js"></script>
           <script src="app/account/login/login.controller.js"></script>
           <script src="app/account/settings/settings.controller.js"></script>

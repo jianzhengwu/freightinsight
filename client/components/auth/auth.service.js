@@ -1,8 +1,13 @@
 'use strict';
 
+
+//define the custom service "Auth"
 angular.module('freightinsightApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
+//Custom service User is defined in user.service.js
+//$cookieStore (deprecated, to be replaced in future by $cookies) provides a key-value (string-object) storage, that is backed by session cookies. Objects put or retrieved from this storage are automatically serialized or deserialized by angular's toJson/fromJson.
     var currentUser = {};
+    //get the value corresponding the key 'token' from the browser session cookie
     if($cookieStore.get('token')) {
       currentUser = User.get();
     }

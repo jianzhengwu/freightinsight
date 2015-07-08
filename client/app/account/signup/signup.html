@@ -6,8 +6,13 @@
       <h1>Sign up</h1>
     </div>
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
-
+      <!--register () function defined in the controller signup.controller.js will be called with the parameter "form" which is defined in the form name="form"-->
+      <form class="form" name="form" ng-submit="register(form)" novalidate> 
+      <!--name = "form" is a Angular signature i.e. the form controller will be published into related scope, under this name "form", so we can use "form" as a scope object in the form -->
+        <!--ng-class can take a object map, the class will be taken if the value is true -->
+          <!--"form.name" refers to the input field user.name. $valid === true if no error-->
+          <!--submitted is the property defined in the $scope of the contorller signupCtrl: $scope.submitted-->
+          
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
                                             'has-error': form.name.$invalid && submitted }">
           <label>Name</label>

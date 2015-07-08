@@ -1,5 +1,7 @@
 'use strict';
 
+//Angular routing, /login is linked with the controller LoginCtrl
+
 angular.module('freightinsightApp')
   .config(function ($routeProvider) {
     $routeProvider
@@ -14,6 +16,6 @@ angular.module('freightinsightApp')
       .when('/settings', {
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
-        authenticate: true
+        authenticate: true    //the routing takes place only if autenticate is true. Of course the actual security is on the server side, this is just for view
       });
   });
