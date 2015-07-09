@@ -9,7 +9,7 @@ angular.module('freightinsightApp')
     var currentUser = {};
     //get the value corresponding the key 'token' from the browser session cookie
     if($cookieStore.get('token')) {
-      currentUser = User.get();
+      currentUser = User.get(); //retrieve current user from the database by the custom service User
     }
 
     return {
