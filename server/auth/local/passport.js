@@ -1,3 +1,5 @@
+//configure passport with local strategy before we use passport.authenticate() in index.js
+
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 

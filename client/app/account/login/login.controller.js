@@ -9,6 +9,7 @@ angular.module('freightinsightApp')
       $scope.submitted = true;
 
       if(form.$valid) {
+//custom service Auth
         Auth.login({
           email: $scope.user.email,
           password: $scope.user.password

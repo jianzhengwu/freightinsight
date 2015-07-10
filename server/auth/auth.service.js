@@ -3,7 +3,8 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('../config/environment');
-var jwt = require('jsonwebtoken');
+//JWT, json web token is a better authentification option compared to "session", so we use it.
+var jwt = require('jsonwebtoken'); 
 var expressJwt = require('express-jwt');
 var compose = require('composable-middleware');
 var User = require('../api/user/user.model');
@@ -30,7 +31,7 @@ function isAuthenticated() {
         if (!user) return res.send(401);
 
         req.user = user;
-        next();
+        next(); //isAuthenticated control passed, we pass the middleware and go to the next middleware of the route handler 
       });
     });
 }

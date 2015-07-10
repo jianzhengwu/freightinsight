@@ -10,6 +10,22 @@
 8. API operation (server/api...), i.e. dedicated server operation for an incomming http request, handling and return the response to client 
 
 
+##http knowledge
+
+the HTTP protocol is stateless that means that it can’t remember us so if we login once, on the next request it already forgot who we are. Imagine having to log in on every request… that is a pain.
+What is/was the solution? A session. A session is basically composed from two parts. An object that resides on the server, 
+like a box, and a cookie on the client’s browser, like a key. When you enter on a page for the first time, 
+it will create a session object on the server and a cookie that will be installed on your browser. 
+With that, the web app can remember us and track what we do. For example: On a book store, it can remember what books we put on the shopping cart, 
+so when we enter the page again, the browser sends the cookie, the web will load our session and then our items will be still there. 
+###session
+When we log in, we find the requested user on the database and we can store it on the session, so on the next requests, the page won’t need to ask for our credentials again.
+However, using "session" for authentification is not an elegant solution anymore, JWT is much better. 
+###JWT JSON Web Token
+magine a web app. You browse it and you decide you want to register yourself. Then you put your credentials on a login form. The web page will send you a token via JSON. What can you do with that token? In that concrete app, you can access your user profile, your messages or even add new friends.
+The same fact applies: You can access your profile but not others profiles (Imagining they are private) and you can’t certainly remove friends from your partner account :P
+
+
 ## tips
 When require is given the path of a folder, it'll look for an index.js in that folder; if there is one, it uses that, and if there isn't, it fails
 

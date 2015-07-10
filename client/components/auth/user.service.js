@@ -1,5 +1,6 @@
 'use strict';
 //custom service "User" has two methods, get the current user and change the password of the current user
+
 angular.module('freightinsightApp')
   .factory('User', function ($resource) {
 
@@ -16,6 +17,7 @@ angular.module('freightinsightApp')
     {
 
  //router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
+ 
         changePassword: {
         method: 'PUT',
         params: {
@@ -24,6 +26,7 @@ angular.module('freightinsightApp')
       },
 
 //index.js: router.get('/me', auth.isAuthenticated(), controller.me);
+
         get: {
         method: 'GET',
         params: {

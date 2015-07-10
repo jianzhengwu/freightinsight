@@ -9,6 +9,7 @@ var errors = require('./components/errors'); //error functions are defined in co
 module.exports = function(app) {
 
   // Insert routes below in the route handlers
+  app.use('/api/bookings', require('./api/booking'));
   // The URL localhost:9000/api/things will be handled by the script /thing/index.js
   app.use('/api/things', require('./api/thing')); //the second argument is supposed to be a router object (see .../thing/index.js)
   app.use('/api/users', require('./api/user'));
